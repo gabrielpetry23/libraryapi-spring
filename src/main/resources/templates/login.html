@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaft.org"> <!-- Adicionando o namespace do Thymeleaf -->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Login</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+          background: linear-gradient(135deg, #6f42c1, #6610f2);
+          min-height: 100vh;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+        .login-card {
+          max-width: 400px;
+          padding: 2rem;
+          border-radius: 1rem;
+          box-shadow: 0 0.5rem 1rem rgba(0,0,0,0.15);
+          background-color: white;
+        }
+    </style>
+</head>
+<body>
+
+<div class="login-card">
+    <h3 class="text-center mb-4">Entrar na Conta</h3>
+    <form method="post" th:action="@{/login}"> <!-- A URL de login deve ser configurada no controlador -->
+        <div class="mb-3">
+            <label for="username" class="form-label">E-mail</label>
+            <!-- especifica username (name = username) -->
+            <input type="text" class="form-control" id="username" name="username" placeholder="Digite seu usuário" required>
+        </div>
+        <div class="mb-3">
+            <label for="password" class="form-label">Senha</label>
+            <!-- especifica password (name = password) -->
+            <input type="password" class="form-control" id="password" name="password" placeholder="********" required>
+        </div>
+        <div class="d-grid mb-3">
+            <button type="submit" class="btn btn-primary">Entrar</button>
+        </div>
+    </form>
+    <br />
+    <hr />
+    <a th:href="@{/oauth2/authorization/google}" class="btn btn-primary">Entrar com Google</a>
+</div>
+
+<!-- Bootstrap JS Bundle -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
